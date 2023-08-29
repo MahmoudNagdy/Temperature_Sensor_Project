@@ -13,6 +13,7 @@ int main(void){
 		LCD_displayCharacter(0xdf);
 		LCD_displayCharacter('C');
 		
+		if(tempValue < 100){
 			if(tempValue < 20){
 				DIO_u8SetPinDirection(3, 0, 1);
 				DIO_u8SetPinValue(3, 0, 1);
@@ -27,6 +28,12 @@ int main(void){
 				DIO_u8SetPinDirection(3, 0, 0);
 				DIO_u8SetPinDirection(3, 1, 0);
 			}
+		}
+		
+		else{
+			DIO_u8SetPinDirection(3, 0, 0);
+			DIO_u8SetPinDirection(3, 1, 0);
+		}
 		
 	}
 	return 0;
